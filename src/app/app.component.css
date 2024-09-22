@@ -1,0 +1,40 @@
+.background {
+    /* background-image: url('/assets/images/topography.svg'); */
+    background-color: #ffffff;
+    /* position: relative;
+    background-size: contain; 
+    background-position: center;
+    background-repeat: repeat;
+    width: 1920px;
+    height: 1080px;     
+    z-index: -1; */
+  }
+.nb{
+  background-color: hwb(0 100% 0%);
+}  
+.text-gothic {
+  font-family: 'MedievalSharp', cursive;
+}
+
+.nb {
+  position: relative;
+}
+
+.nb .absolute.inset-0.flex.items-center.justify-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-gothic {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.25rem; 
+}
+
+
+.bodoni-moda {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+  font-weight: 1000;
+  font-style: normal;
+}

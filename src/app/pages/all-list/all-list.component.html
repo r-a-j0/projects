@@ -1,0 +1,46 @@
+<div class="table-container"
+  style="background-image: url('https://images.unsplash.com/photo-1510070009289-b5bc34383727?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');margin-left: 100px; margin-right: 100px; margin-bottom: 200px; border-radius: 20px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <h1 style="color: rgb(7, 7, 7); font-size: xx-large;">List of Applicants</h1>
+      <div class="col-12">
+        <table class="table opaque-table" style="border-radius: 10px;">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>LinkedIn Url</th>
+              <th>Email</th>
+              <th>Actions</th> <!-- Actions header -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="hyte" *ngFor="let data of list; let sr = index">
+              <td>{{data.id}}</td>
+              <td>{{data.name}}</td>
+              <td>{{data.linkedInProfile}}</td>
+              <td>{{data.email}}</td>
+              <td class="lol">
+                <!-- <button (click)="editStudent(data.id)">Edit</button> -->
+                
+                <div class="edit" (click)="editStudent(data.id)">
+                  <div>
+                    Edit
+                  </div>
+                </div>
+
+                <!-- <button (click)="deleteStudent(data.id)">Delete</button> -->
+                <div class="del" (click)="deleteStudent(data.id)">
+                  <div>
+                    Delete
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

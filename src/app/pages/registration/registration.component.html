@@ -1,0 +1,23 @@
+<div>
+<form class="form" style="background-image: url('https://images.unsplash.com/photo-1501349800519-48093d60bde0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); margin-left: 100px; margin-right: 100px; margin-bottom: 200px; border-radius: 20px;" (ngSubmit)="onRegister()" #registrationForm="ngForm">
+  <div class="title" style="margin-right: 90px;">Welcome,<br><span>Fill all the fields to Register</span></div>
+
+  <input type="text" [(ngModel)]="registrationObj.name" placeholder="Full Name" name="name" required #name="ngModel" class="input">
+  <div *ngIf="name.invalid && name.touched" class="error">Full Name is required</div>
+
+  <input type="email" [(ngModel)]="registrationObj.email" placeholder="Email" name="email" required #email="ngModel" class="input">
+  <div *ngIf="email.invalid && email.touched" class="error">A valid email is required</div>
+
+  <input type="number" [(ngModel)]="registrationObj.age" placeholder="Age" name="age" required min="18" max="60" #age="ngModel" class="input">
+  <div *ngIf="age.invalid && age.touched" class="error">Age must be between 18 and 60</div>
+
+  <input type="text" [(ngModel)]="registrationObj.phone" placeholder="Phone" name="phone" required pattern="^[0-9]{10}$" #phone="ngModel" class="input">
+  <div *ngIf="phone.invalid && phone.touched" class="error">A valid phone number is required</div>
+
+  <input type="url" [(ngModel)]="registrationObj.linkedInProfile" placeholder="LinkedIn Url" name="linkedinurl" required pattern="https?://.+" #linkedInProfile="ngModel" class="input">
+  <div *ngIf="linkedInProfile.invalid && linkedInProfile.touched" class="error">A valid LinkedIn URL is required</div>
+
+  <button class="button-confirm" style="margin-right: 80px;" [disabled]="registrationForm.invalid">Register</button>
+</form>
+</div>
+

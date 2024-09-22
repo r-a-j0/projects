@@ -1,0 +1,59 @@
+<!-- <div class="form-container">
+    <form (ngSubmit)="onUpdate()" class="update-form">
+      <h2 class="form-title">Update Student Information</h2>
+      
+      <input type="text" [(ngModel)]="student.name" name="name" required placeholder="Full Name" class="input-field">
+      <input type="email" [(ngModel)]="student.email" name="email" required placeholder="Email" class="input-field">
+      <input type="text" [(ngModel)]="student.city" name="city" required placeholder="City" class="input-field">
+      <input type="url" [(ngModel)]="student.linkedInProfile" name="linkedInProfile" required placeholder="LinkedIn URL" class="input-field">
+      
+      <button type="submit" class="submit-button">Update</button>
+    </form>
+  </div>
+   -->
+   <form class="form" (ngSubmit)="onUpdate()" #editForm="ngForm">
+    <p class="title">Update Details </p>
+    <p class="message">Ensure the data is in correct format </p>
+    
+    <!-- Name Input with Validation -->
+    <label>
+        <input class="input" type="text" [(ngModel)]="student.name" name="name" #name="ngModel" required minlength="3">
+        <span>Firstname</span>
+    </label>
+    <div *ngIf="name.invalid && name.touched">
+        <small class="error" *ngIf="name.errors?.['required']">Name is required.</small>
+        <small class="error" *ngIf="name.errors?.['minlength']">Name must be at least 3 characters long.</small>
+    </div>
+
+    <!-- Email Input with Validation -->
+    <label>
+        <input class="input" type="email" [(ngModel)]="student.email" name="email" #email="ngModel" required email>
+        <span>Email</span>
+    </label>
+    <div *ngIf="email.invalid && email.touched">
+        <small class="error" *ngIf="email.errors?.['required']">Email is required.</small>
+        <small class="error" *ngIf="email.errors?.['email']">Invalid email format.</small>
+    </div>
+
+    <!-- City Input with Validation -->
+    <label>
+        <input class="input" type="text" [(ngModel)]="student.city" name="city" #city="ngModel" required>
+        <span>City</span>
+    </label>
+    <div *ngIf="city.invalid && city.touched">
+        <small class="error" *ngIf="city.errors?.['required']">City is required.</small>
+    </div>
+
+    <!-- LinkedIn Profile Input with URL Validation -->
+    <label>
+        <input class="input" type="url" [(ngModel)]="student.linkedInProfile" name="linkedInProfile" #linkedInProfile="ngModel" required pattern="https?://.+">
+        <span>LinkedIn Profile</span>
+    </label>
+    <div *ngIf="linkedInProfile.invalid && linkedInProfile.touched">
+        <small class="error" *ngIf="linkedInProfile.errors?.['required']">LinkedIn profile URL is required.</small>
+        <small class="error" *ngIf="linkedInProfile.errors?.['pattern']">Please enter a valid LinkedIn URL.</small>
+    </div>
+
+    <!-- Submit Button (Disabled if form is invalid) -->
+    <button class="submit" [disabled]="editForm.invalid">Submit</button>
+</form>
